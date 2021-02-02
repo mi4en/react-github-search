@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class UserItem extends Component {
-	// We can use the constructor to have our state but it is a bit overkill if we dont need it for anything else
 	// constructor() {
 	// 	super();
 	// 	this.state = {
