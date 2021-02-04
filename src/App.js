@@ -6,6 +6,7 @@ import Navbar from './components/layout/Navbar';
 import Users from './components/users/Users';
 import Search from './components/users/Search';
 import Alert from './components/layout/Alert';
+import About from './components/pages/About';
 
 class App extends Component {
 	state = {
@@ -63,12 +64,14 @@ class App extends Component {
 											showClear={users.length > 0 ? true : false}
 											setAlert={this.setAlert}
 										/>
+
+										<Users loading={loading} users={users} />
 									</Fragment>
 								)}
 							></Route>
-						</Switch>
 
-						<Users loading={loading} users={users} />
+							<Route exact path='/about' component={About}></Route>
+						</Switch>
 					</div>
 				</div>
 			</Router>
