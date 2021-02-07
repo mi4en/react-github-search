@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import axios from 'axios';
+
 import Navbar from './components/layout/Navbar';
 import Users from './components/users/Users';
 import User from './components/users/User';
@@ -20,20 +21,6 @@ const App = () => {
 	const [alert, setAlert] = useState(null);
 
 	// Search Github Users
-	const searchUsers = async (text) => {
-		setLoading(true);
-
-		try {
-			const res = await axios.get(
-				`https://api.github.com/search/users?q=${text}&client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`,
-			);
-			setUsers(res.data.items);
-		} catch (error) {
-			console.error(error);
-		} finally {
-			setLoading(false);
-		}
-	};
 
 	// Get single user
 	const getUser = async (username) => {
@@ -98,7 +85,6 @@ const App = () => {
 								render={(props) => (
 									<Fragment>
 										<Search
-											searchUsers={searchUsers}
 											clearUsers={clearUsers}
 											showClear={users.length > 0 ? true : false}
 											showAlert={showAlert}
